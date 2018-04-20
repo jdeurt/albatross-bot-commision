@@ -6,12 +6,20 @@ module.exports.run = (bot, msg) => {
     function send(str) {
         msg.guild.channels.find("name", chn.name).send(str);
     }
+    
+    
+    // // // // // // // // // // // // // // // // // // // // // // // //
     function start() {
+        //send messages on channel create here with send([message])
         send(`<@${msg.author.id}>`);
         send("Hey!");
     }
+    // // // // // // // // // // // // // // // // // // // // // // // //
+    
+    
     //check if channel already exists before creating
     if(msg.guild.channels.find("name", chn.name)) {
+        start();
     }
     else {
         msg.guild.createChannel(chn.name, chn.type, [{
@@ -28,6 +36,7 @@ module.exports.run = (bot, msg) => {
                 "SEND_MESSAGES": true,
                 "READ_MESSAGE_HISTORY": true
             });
+            start();
         });
     }
 };
