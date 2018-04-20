@@ -1,6 +1,6 @@
 module.exports.run = (bot, msg) => {
     let chn = {
-        name: "private-"+msg.author.id,
+        name: "loan-"+msg.author.id,
         type: "text",
     };
     function send(str) {
